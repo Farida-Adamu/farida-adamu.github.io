@@ -1,312 +1,785 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Farida Adamu</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Farida Adamu — Research Practitioner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet" />
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --ivory: #F4EFE7;
+    --lime: #BFCC52;
+    --lime-tint: rgba(191, 204, 82, 0.22);
+    --lime-tint-soft: rgba(191, 204, 82, 0.14);
+    --terracotta: #C2714F;
+    --terracotta-tint: rgba(194, 113, 79, 0.18);
+    --charcoal: #1B1B1B;
+    --muted: rgba(27, 27, 27, 0.48);
+    --muted-soft: rgba(27, 27, 27, 0.32);
+    --border: 0.5px solid rgba(27, 27, 27, 0.11);
+    --border-color: rgba(27, 27, 27, 0.11);
+    --tag-text: #4a5524;
+    --max: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
 
   body {
-    background: #f8f8f6;
-    color: #1c1c1c;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
+    background: var(--ivory);
+    color: var(--charcoal);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 15px;
-    line-height: 1.7;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  a { color: #1c1c1c; text-decoration: underline; text-underline-offset: 3px; }
-  a:hover { opacity: 0.55; }
+  a { color: inherit; text-decoration: none; }
 
-  /* NAV */
-  nav {
-    max-width: 680px;
+  /* ── NAV ────────────────────────────────────────────── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--ivory);
+    border-bottom: var(--border);
+  }
+  .nav-inner {
+    max-width: var(--max);
     margin: 0 auto;
-    padding: 2.5rem 1.5rem 0;
+    padding: 22px 32px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: baseline;
+    gap: 32px;
   }
-  .nav-name {
-    font-family: 'Lora', serif;
-    font-size: 1rem;
-    font-weight: 400;
-  }
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.8rem;
-  }
-  .nav-links a {
-    font-size: 0.8rem;
-    text-decoration: none;
-    color: #666;
-    letter-spacing: 0.02em;
-  }
-  .nav-links a:hover { color: #1c1c1c; opacity: 1; }
-
-  /* MAIN CONTENT */
-  main {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 4rem 1.5rem 6rem;
-  }
-
-  /* SECTIONS */
-  section { margin-bottom: 4rem; }
-
-  .section-label {
-    font-size: 0.7rem;
+  .brand-name {
+    font-size: 14px;
+    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #999;
-    margin-bottom: 1.2rem;
-  }
-
-  /* BIO */
-  .bio-name {
-    font-family: 'Lora', serif;
-    font-size: 2rem;
-    font-weight: 400;
     line-height: 1.2;
-    margin-bottom: 1.2rem;
   }
-  .bio-name em { font-style: italic; }
-  .bio-text { color: #333; max-width: 560px; }
-  .bio-meta {
-    margin-top: 1.2rem;
-    font-size: 0.82rem;
-    color: #888;
+  .brand-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 2px;
   }
-  .bio-meta span { margin-right: 1.2rem; }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+  }
+  .nav-links a {
+    font-size: 14px;
+    color: var(--muted);
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--charcoal); }
 
-  /* DIVIDER */
-  hr {
-    border: none;
-    border-top: 1px solid #e2e2de;
-    margin-bottom: 4rem;
-  }
-
-  /* TEACHING */
-  .course-list { display: flex; flex-direction: column; gap: 1.8rem; }
-  .course-item { }
-  .course-title {
-    font-family: 'Lora', serif;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 0.2rem;
-  }
-  .course-sub {
-    font-size: 0.78rem;
-    color: #888;
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.02em;
-  }
-  .course-desc { font-size: 0.88rem; color: #444; }
-
-  /* PUBLICATIONS */
-  .pub-list { display: flex; flex-direction: column; }
-  .pub-item {
-    display: grid;
-    grid-template-columns: 52px 1fr;
-    gap: 1rem;
-    padding: 1.2rem 0;
-    border-bottom: 1px solid #e8e8e4;
-  }
-  .pub-item:first-child { border-top: 1px solid #e8e8e4; }
-  .pub-year { font-size: 0.78rem; color: #aaa; padding-top: 0.2rem; }
-  .pub-title { font-size: 0.92rem; color: #1c1c1c; margin-bottom: 0.25rem; }
-  .pub-venue { font-size: 0.78rem; color: #888; font-style: italic; }
-
-  /* PROJECTS */
-  .projects-note {
-    font-size: 0.88rem;
-    color: #444;
-    margin-bottom: 1.5rem;
-  }
-  .github-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-decoration: none;
-    border: 1px solid #d4d4d0;
-    padding: 0.55rem 1.1rem;
-    color: #1c1c1c;
-    transition: border-color 0.2s;
-    border-radius: 3px;
-  }
-  .github-link:hover { border-color: #999; opacity: 1; }
-  .github-link svg { flex-shrink: 0; }
-
-  /* CV */
-  .cv-text { font-size: 0.88rem; color: #444; margin-bottom: 1.2rem; }
-  .cv-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-decoration: none;
-    background: #1c1c1c;
-    color: #f8f8f6;
-    padding: 0.55rem 1.2rem;
-    border-radius: 3px;
-    transition: opacity 0.2s;
-  }
-  .cv-link:hover { opacity: 0.75; }
-
-  /* FOOTER */
-  footer {
-    max-width: 680px;
+  /* ── LAYOUT WRAPPER ─────────────────────────────────── */
+  .wrap {
+    max-width: var(--max);
     margin: 0 auto;
-    padding: 0 1.5rem 3rem;
-    border-top: 1px solid #e2e2de;
-    padding-top: 2rem;
+    padding: 0 32px;
+  }
+
+  /* ── EYEBROW ────────────────────────────────────────── */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+  .eyebrow .line {
+    display: inline-block;
+    width: 28px;
+    height: 1.5px;
+    background: var(--lime);
+  }
+  .eyebrow.no-line { gap: 0; }
+
+  section {
+    padding: 64px 0;
+    border-bottom: var(--border);
+  }
+
+  /* ── ABOUT ──────────────────────────────────────────── */
+  .about {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--lime-tint);
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .photo .placeholder {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.5;
+  }
+  .bio {
+    max-width: 720px;
+  }
+  .bio-text {
+    font-size: 19px;
+    line-height: 1.65;
+    margin: 0 0 28px;
+    text-wrap: pretty;
+  }
+  .bio-text em {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--terracotta);
+  }
+  .bio-meta {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 13px;
+  }
+  .bio-meta .loc {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+  }
+  .bio-meta .loc svg { color: var(--lime); flex-shrink: 0; }
+  .bio-meta .cv {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 12px;
+    font-weight: 500;
+    border-bottom: 1.5px solid var(--lime);
+    padding-bottom: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease;
+  }
+  .bio-meta .cv:hover { color: var(--terracotta); }
+
+  /* ── PILL TABS ──────────────────────────────────────── */
+  .pills {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    appearance: none;
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--muted);
+    padding: 8px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+  .pill:hover { color: var(--charcoal); }
+  .pill.active {
+    background: rgba(27, 27, 27, 0.92);
+    color: var(--ivory);
+  }
+
+  /* ── CARD GRID ──────────────────────────────────────── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .card {
+    border: var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--ivory);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease;
+    cursor: pointer;
+  }
+  .card.hidden {
+    display: none;
+  }
+  .card.fade-in {
+    animation: fadeIn 0.4s ease both;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -16px rgba(27, 27, 27, 0.18);
+  }
+  .card:hover .arrow { color: var(--lime); }
+
+  .card-image {
+    position: relative;
+    background: var(--lime-tint);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: var(--border);
+  }
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .card-image .img-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--muted-soft);
+    text-transform: uppercase;
+  }
+
+  .tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--lime);
+    color: var(--tag-text);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+
+  .arrow {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    color: var(--charcoal);
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  .card:hover .arrow { transform: translate(2px, -2px); }
+
+  .card-body {
+    padding: 20px 22px 24px;
+  }
+  .card-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 1.25;
+    margin: 0 0 8px;
+    color: var(--charcoal);
+  }
+  .card-meta {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  /* ── PROJECTS ───────────────────────────────────────── */
+  .project-card {
+    border: var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 560px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .project-card.hidden { display: none; }
+  .project-card .card-image { height: 220px; }
+  .project-card .card-image.lime { background: var(--lime-tint); }
+  .project-card .card-image.terracotta { background: var(--terracotta-tint); }
+  .project-card .tag.status-active {
+    left: auto; right: 14px;
+    background: var(--lime);
+    color: var(--tag-text);
+  }
+  .project-card .tag.status-past {
+    left: auto; right: 14px;
+    background: rgba(27, 27, 27, 0.08);
+    color: var(--muted);
+  }
+  .project-card .card-body { padding: 24px 26px 28px; }
+  .project-card .project-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 26px;
+    margin: 0 0 10px;
+  }
+  .project-card .project-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--charcoal);
+    margin: 0 0 14px;
+  }
+  .project-card .project-link {
+    font-size: 13px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--lime);
+    padding-bottom: 2px;
+  }
+  .project-card .project-link:hover { color: var(--charcoal); }
+
+  /* ── TEACHING ───────────────────────────────────────── */
+  .teaching-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border-color);
+    border: var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .course {
+    background: var(--ivory);
+    padding: 32px 36px;
+  }
+  .course-code {
+    font-size: 11px;
+    color: var(--lime);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    /* darken slightly for contrast */
+    color: #8a9a32;
+  }
+  .course-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 14px;
+  }
+  .course-detail {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .course-school {
+    color: var(--charcoal);
+  }
+
+  /* ── FOOTER ─────────────────────────────────────────── */
+  footer {
+    position: relative;
+    overflow: hidden;
+    min-height: 240px;
+    padding: 36px 0 0;
+    border-top: var(--border);
+  }
+  .footer-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 32px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: 0.78rem;
-    color: #aaa;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
   }
-  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-  .footer-links a { color: #aaa; font-size: 0.78rem; }
+  .footer-url {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+  .footer-socials {
+    display: flex;
+    gap: 16px;
+  }
+  .footer-socials a {
+    font-size: 13px;
+    color: var(--muted);
+    transition: color 0.2s ease;
+  }
+  .footer-socials a:hover { color: var(--charcoal); }
+  .footer-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--lime);
+  }
+  .ghost {
+    position: absolute;
+    bottom: -3vw;
+    left: 0;
+    right: 0;
+    font-size: 30vw;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+    color: rgba(27, 27, 27, 0.06);
+    text-align: center;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1;
+    white-space: nowrap;
+  }
+
+  /* ── MOBILE ─────────────────────────────────────────── */
+  @media (max-width: 760px) {
+    .wrap, .nav-inner, .footer-inner { padding-left: 22px; padding-right: 22px; }
+    .nav-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .nav-links { gap: 20px; flex-wrap: wrap; }
+    .about { grid-template-columns: 1fr; gap: 24px; text-align: left; }
+    .photo { width: 160px; height: 160px; }
+    .bio-text { font-size: 17px; }
+    .grid { grid-template-columns: 1fr; }
+    .teaching-grid { grid-template-columns: 1fr; }
+    .bio-meta { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .ghost { font-size: 40vw; }
+  }
 </style>
 </head>
 <body>
 
-<nav>
-  <span class="nav-name">Farida Adamu</span>
-  <ul class="nav-links">
-    <li><a href="#teaching">Teaching</a></li>
-    <li><a href="#publications">Publications</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#cv">CV</a></li>
-  </ul>
+<!-- ── NAV ─────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div>
+      <div class="brand-name">Farida Adamu</div>
+      <div class="brand-title">Research Practitioner</div>
+    </div>
+    <div class="nav-links">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#projects">Projects</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#cv" id="nav-cv">CV</a>
+    </div>
+  </div>
 </nav>
 
-<main>
+<main class="wrap">
 
-  <!-- BIO -->
-  <section id="bio">
-    <h1 class="bio-name">Farida <em>Adamu</em></h1>
-    <p class="bio-text">
-      I'm a researcher and data analyst. I currently teach R and data-driven decision making at the ABS in Paris and am a fractional lead for the Insights team at Gatefield. My educational background is in Statistics (BSc) and Data Science (MSc).
-    </p>
-    <p class="bio-text" style="margin-top:0.8rem;">
-      My experience intersects end-to-end research, business intelligence, and analytics — and my roles have moved between these two areas.
-    </p>
-    <div class="bio-meta">
-      <span>Paris, France</span>
-      <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bddbdccfd4d9dcfdd8c5dcd0cdd1d893ded2d0">[email&#160;protected]</a></span>
-    </div>
-  </section>
-
-  <hr>
-
-  <!-- TEACHING -->
-  <section id="teaching">
-    <div class="section-label">Teaching</div>
-    <div class="course-list">
-      <div class="course-item">
-        <div class="course-title">AI for Business — DSCI200</div>
-        <div class="course-sub">Undergraduate · Paris</div>
-        <div class="course-desc">AI applications in business, prompt engineering, and responsible use of AI in organisational decision-making.</div>
+  <!-- ── ABOUT ───────────────────────────────────────── -->
+  <section id="about" class="about-section">
+    <div class="eyebrow no-line">About</div>
+    <div class="about">
+      <div class="photo">
+        <!-- Replace this <div> with <img src="your-photo.jpg" alt="Farida Adamu" /> when ready -->
+        <div class="placeholder">YOUR<br/>PHOTO</div>
       </div>
-      <div class="course-item">
-        <div class="course-title">Data-Driven Decision Making with R — DSCI600</div>
-        <div class="course-sub">Graduate · Paris</div>
-        <div class="course-desc">Statistical computing, predictive analytics, and reproducible research workflows using R and the tidyverse.</div>
-      </div>
-    </div>
-  </section>
-
-  <hr>
-
-  <!-- PUBLICATIONS -->
-  <section id="publications">
-    <div class="section-label">Publications & Reports</div>
-    <div class="pub-list">
-      <div class="pub-item">
-        <div class="pub-year">2026</div>
-        <div>
-          <div class="pub-title">Longevity Index — forthcoming</div>
-          <div class="pub-venue">Forthcoming</div>
-        </div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-year">2026</div>
-        <div>
-          <div class="pub-title">State of Online Harms in Nigeria, 2026 — forthcoming</div>
-          <div class="pub-venue">Gatefield Impact Foundation</div>
-        </div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-year">2025</div>
-        <div>
-          <div class="pub-title">State of Online Harms in Nigeria, 2025</div>
-          <div class="pub-venue">Gatefield Impact Foundation</div>
-        </div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-year">2025</div>
-        <div>
-          <div class="pub-title"><a href="https://biology-health-science.wren-research-journals.com/1/article/view/23" target="_blank">The Evolution of Tobacco Marketing to Women and Girls in Sub-Saharan Africa</a></div>
-          <div class="pub-venue">Wren Research Journals — Biology & Health Science</div>
-        </div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-year">2025</div>
-        <div>
-          <div class="pub-title">NarratEQ: A Gender Equality Data Lab</div>
-          <div class="pub-venue">Gatefield Impact Foundation</div>
-        </div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-year">—</div>
-        <div>
-          <div class="pub-title">Other Writing</div>
-          <div class="pub-venue">Ebedi International Writers Residency · Various journals</div>
+      <div class="bio">
+        <p class="bio-text">I produce <em>research-backed</em> and <em>visually driven</em> narratives that help institutions gain clarity and confidence with their data, so they can make better decisions about their work or the communities they serve. My work combines the rigour of research and the aesthetic allure of design to draw attention to important subjects.</p>
+        <div class="bio-meta">
+          <span class="loc">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Paris, France
+          </span>
+          <a href="#" class="cv" id="cv-link" download>
+            Download CV
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <hr>
+  <!-- ── PORTFOLIO ───────────────────────────────────── -->
+  <section id="portfolio">
+    <div class="eyebrow"><span class="line"></span>Portfolio</div>
 
-  <!-- PROJECTS -->
+    <div class="pills" role="tablist" aria-label="Portfolio filter">
+      <button class="pill active" data-filter="publication">Publications</button>
+      <button class="pill" data-filter="design">Design</button>
+      <button class="pill" data-filter="technical">Technical</button>
+    </div>
+
+    <div class="grid" id="portfolio-grid">
+      <!-- Publications -->
+      <a class="card" data-cat="publication" href="#" target="_blank" rel="noopener">
+        <div class="card-image">
+          <span class="tag">Publication</span>
+          <span class="img-label">Cover Image</span>
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">State of Online Harms in Nigeria, 2025</h3>
+          <p class="card-meta">Gatefield Impact Foundation · 2025</p>
+        </div>
+      </a>
+
+      <a class="card" data-cat="publication" href="#" target="_blank" rel="noopener">
+        <div class="card-image">
+          <span class="tag">Publication</span>
+          <span class="img-label">Cover Image</span>
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">State of Online Harms in Nigeria, 2026</h3>
+          <p class="card-meta">Gatefield Impact Foundation · Forthcoming, 2026</p>
+        </div>
+      </a>
+
+      <a class="card" data-cat="publication" href="#" target="_blank" rel="noopener">
+        <div class="card-image">
+          <span class="tag">Publication</span>
+          <span class="img-label">Cover Image</span>
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Tobacco Marketing to Women and Girls in Sub-Saharan Africa</h3>
+          <p class="card-meta">Wren Research Journals · 2025</p>
+        </div>
+      </a>
+
+      <a class="card" data-cat="publication" href="#" target="_blank" rel="noopener">
+        <div class="card-image">
+          <span class="tag">Publication</span>
+          <span class="img-label">Cover Image</span>
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Unlocking Access to Finance for Women-Led Businesses</h3>
+          <p class="card-meta">Gatefield Impact Foundation · 2025</p>
+        </div>
+      </a>
+
+      <!-- Design -->
+      <a class="card" data-cat="design" href="#" target="_blank" rel="noopener">
+        <div class="card-image">
+          <span class="tag">Design</span>
+          <span class="img-label">Viz Preview</span>
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">The Nightingale</h3>
+          <p class="card-meta">Data visualization · Published</p>
+        </div>
+      </a>
+
+      <a class="card" data-cat="design" href="#" target="_blank" rel="noopener">
+        <div class="card-image">
+          <span class="tag">Design</span>
+          <span class="img-label">Viz Preview</span>
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">The Naira Museum</h3>
+          <p class="card-meta">Data visualization · Behance</p>
+        </div>
+      </a>
+
+      <a class="card" data-cat="design" href="#" target="_blank" rel="noopener">
+        <div class="card-image">
+          <span class="tag">Design</span>
+          <span class="img-label">Viz Preview</span>
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Boeing in the Last Decade</h3>
+          <p class="card-meta">Data visualization · Behance</p>
+        </div>
+      </a>
+
+      <!-- Technical -->
+      <a class="card" data-cat="technical" href="#" target="_blank" rel="noopener">
+        <div class="card-image">
+          <span class="tag">Technical</span>
+          <span class="img-label">Screenshot</span>
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">NarratEQ — Gender Data Platform</h3>
+          <p class="card-meta">Gatefield Impact Foundation · Interactive platform</p>
+        </div>
+      </a>
+
+      <a class="card" data-cat="technical" href="#" target="_blank" rel="noopener">
+        <div class="card-image">
+          <span class="tag">Technical</span>
+          <span class="img-label">Screenshot</span>
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">TY Danjuma Philanthropic Database</h3>
+          <p class="card-meta">TY Danjuma Foundation · Database architecture</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ────────────────────────────────────── -->
   <section id="projects">
-    <div class="section-label">Projects</div>
-    <p class="projects-note">
-      My active and ongoing projects — including NarratEQ, the TY Danjuma philanthropic database, and data tools built with R and Shiny — live on GitHub.
-    </p>
-    <a href="https://github.com/Farida-Adamu" target="_blank" class="github-link">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-      </svg>
-      github.com/Farida-Adamu
-    </a>
+    <div class="eyebrow"><span class="line"></span>Projects</div>
+
+    <div class="pills" role="tablist" aria-label="Projects toggle">
+      <button class="pill active" data-project="active">Active</button>
+      <button class="pill" data-project="past">Past</button>
+    </div>
+
+    <div id="projects-stage">
+      <!-- Active: Macular -->
+      <article class="project-card" data-project="active">
+        <div class="card-image lime">
+          <span class="tag status-active">Active</span>
+          <span class="img-label">Project Image</span>
+        </div>
+        <div class="card-body">
+          <h3 class="project-title">Macular</h3>
+          <p class="project-desc">A data and creative project addressing the missingness of African datasets — inspired by photographing the world through the lens of visual disability.</p>
+          <a class="project-link" href="https://macular.io" target="_blank" rel="noopener">macular.io →</a>
+        </div>
+      </article>
+
+      <!-- Past: ResearcherNG -->
+      <article class="project-card hidden" data-project="past">
+        <div class="card-image terracotta">
+          <span class="tag status-past">2018–2022</span>
+          <span class="img-label">Project Image</span>
+        </div>
+        <div class="card-body">
+          <h3 class="project-title">ResearcherNG</h3>
+          <p class="project-desc">A research practice focused on Nigeria, producing market intelligence, demographic analysis, and policy-relevant research across sectors.</p>
+          <a class="project-link" href="https://researcher.ng" target="_blank" rel="noopener">researcher.ng →</a>
+        </div>
+      </article>
+    </div>
   </section>
 
-  <hr>
+  <!-- ── TEACHING ────────────────────────────────────── -->
+  <section id="teaching">
+    <div class="eyebrow"><span class="line"></span>Teaching</div>
 
-  <!-- CV -->
-  <section id="cv">
-    <div class="section-label">CV</div>
-    <p class="cv-text">
-      My full CV covers my research, analytics, and teaching experience across Nigeria, Luxembourg, and France — including work at Gatefield, PwC Luxembourg, Generation, and Code for Africa.
-    </p>
-    <a href="#" class="cv-link">
-      Download CV (PDF) ↓
-    </a>
+    <div class="teaching-grid">
+      <div class="course">
+        <div class="course-code">DSCI600 · Graduate</div>
+        <h3 class="course-name">Data-Driven Decision Making with R</h3>
+        <p class="course-detail"><span class="course-school">American Business School of Paris</span> · Statistical computing, predictive analytics, and reproducible research workflows using R and the tidyverse.</p>
+      </div>
+      <div class="course">
+        <div class="course-code">DSCI200 · Undergraduate</div>
+        <h3 class="course-name">AI for Business</h3>
+        <p class="course-detail"><span class="course-school">American Business School of Paris</span> · AI applications in business, prompt engineering, and responsible use of AI in organisational decision-making.</p>
+      </div>
+    </div>
   </section>
 
 </main>
 
+<!-- ── FOOTER ──────────────────────────────────────────── -->
 <footer>
-  <span>© Farida Adamu</span>
-  <ul class="footer-links">
-    <li><a href="https://github.com/Farida-Adamu">Git
+  <div class="footer-inner">
+    <div>
+      <p class="footer-url">farida-adamu.github.io</p>
+      <div class="footer-socials">
+        <a href="https://github.com/Farida-Adamu" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.behance.net/thefaridaadamu" target="_blank" rel="noopener">Behance</a>
+        <a href="https://www.linkedin.com/in/farida-adamu-0777a9109/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <span class="footer-dot" aria-hidden="true"></span>
+  </div>
+  <div class="ghost" aria-hidden="true">farida</div>
+</footer>
+
+<script>
+  // ── PORTFOLIO FILTER ─────────────────────────────────
+  (function () {
+    const pills = document.querySelectorAll('#portfolio .pill');
+    const cards = document.querySelectorAll('#portfolio-grid .card');
+
+    function applyFilter(filter) {
+      cards.forEach(card => {
+        const show = filter === 'all' || card.dataset.cat === filter;
+        if (show) {
+          card.classList.remove('hidden');
+          card.classList.remove('fade-in');
+          void card.offsetWidth; // force reflow so animation re-triggers
+          card.classList.add('fade-in');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        applyFilter(pill.dataset.filter);
+      });
+    });
+
+    // initial filter — Publications is the default active tab on the home page
+    const initial = document.querySelector('#portfolio .pill.active');
+    if (initial) applyFilter(initial.dataset.filter);
+  })();
+
+  // ── PROJECTS TOGGLE ──────────────────────────────────
+  (function () {
+    const pills = document.querySelectorAll('#projects .pill');
+    const cards = document.querySelectorAll('#projects-stage .project-card');
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const target = pill.dataset.project;
+        cards.forEach(card => {
+          const show = card.dataset.project === target;
+          if (show) {
+            card.classList.remove('hidden');
+            void card.offsetWidth;
+            card.classList.add('fade-in');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  })();
+
+  // ── CV LINK (placeholder behaviour) ──────────────────
+  (function () {
+    const cvLinks = [document.getElementById('cv-link'), document.getElementById('nav-cv')];
+    cvLinks.forEach(el => {
+      if (!el) return;
+      el.addEventListener('click', (e) => {
+        // When you have the PDF, set href="cv.pdf" and remove this handler.
+        e.preventDefault();
+        console.log('CV download requested — add cv.pdf to repo root.');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
