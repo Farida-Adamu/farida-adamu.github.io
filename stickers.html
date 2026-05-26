@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CSV Con Stickers — Farida Adamu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ivory: #F4EFE7;
+    --lime: #BFCC52;
+    --lime-tint: rgba(191, 204, 82, 0.22);
+    --charcoal: #1B1B1B;
+    --muted: rgba(27, 27, 27, 0.48);
+    --border: 0.5px solid rgba(27, 27, 27, 0.11);
+    --max: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--ivory);
+    color: var(--charcoal);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--ivory);
+    border-bottom: var(--border);
+  }
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 22px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand-name {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .brand-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .nav-back {
+    font-size: 14px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+  }
+  .nav-back:hover { color: var(--charcoal); }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 64px 32px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .eyebrow .line {
+    display: inline-block;
+    width: 28px;
+    height: 1.5px;
+    background: var(--lime);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 36px;
+    margin: 0 0 8px;
+  }
+  .meta {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0 0 48px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .grid img {
+    width: 100%;
+    border-radius: 8px;
+    border: var(--border);
+    display: block;
+    background: var(--lime-tint);
+  }
+
+  .download-row {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: var(--border);
+  }
+  .download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid var(--lime);
+    padding-bottom: 2px;
+    transition: color 0.2s ease;
+  }
+  .download-link:hover { color: var(--lime); }
+
+  @media (max-width: 760px) {
+    .wrap { padding: 40px 22px; }
+    .nav-inner { padding: 22px; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+    h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div>
+      <div class="brand-name">Farida Adamu</div>
+      <div class="brand-title">Research Practitioner</div>
+    </div>
+    <a href="/#portfolio" class="nav-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      Back to portfolio
+    </a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="eyebrow"><span class="line"></span>Design</div>
+  <h1>CSV Con Stickers</h1>
+  <p class="meta">Sticker design · CSVConf 2024</p>
+
+  <div class="grid">
+    <img src="stickers/sticker-1.png" alt="CSV Con sticker 1" />
+    <img src="stickers/sticker-2.png" alt="CSV Con sticker 2" />
+    <img src="stickers/sticker-3.png" alt="CSV Con sticker 3" />
+    <img src="stickers/sticker-4.png" alt="CSV Con sticker 4" />
+    <img src="stickers/sticker-5.png" alt="CSV Con sticker 5" />
+    <img src="stickers/sticker-6.png" alt="CSV Con sticker 6" />
+    <img src="stickers/sticker-7.png" alt="CSV Con sticker 7" />
+    <img src="stickers/sticker-8.png" alt="CSV Con sticker 8" />
+    <img src="stickers/sticker-9.png" alt="CSV Con sticker 9" />
+    <img src="stickers/sticker-10.png" alt="CSV Con sticker 10" />
+  </div>
+
+  <div class="download-row">
+    <a href="CSV CONF STICKERS.zip" download class="download-link">
+      Download all stickers
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
